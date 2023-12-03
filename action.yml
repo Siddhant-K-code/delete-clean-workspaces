@@ -1,0 +1,16 @@
+name: "Delete clean Gitpod workspaces"
+author: "Siddhant-K-code"
+description: "GitHub action to delete non-running, clean Gitpod workspaces."
+inputs:
+  GITPOD_TOKEN:
+    description: "Gitpod Personal Access token"
+    required: true
+outputs:
+  success:
+    description: "true|false based on if the script worked"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: "archive"
+  color: "orange"
