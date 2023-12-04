@@ -15,7 +15,7 @@ name: Delete clean Gitpod workspaces weekly
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 9 * * MON' # At 9 AM UTC, weekly only on Monday
+    - cron: "0 9 * * MON" # At 9 AM UTC, weekly only on Monday
 
 jobs:
   delete-clean-workspaces:
@@ -26,4 +26,5 @@ jobs:
         uses: Siddhant-K-code/delete-clean-workspaces@v1.0
         with:
           GITPOD_TOKEN: ${{ secrets.GITPOD_PAT_TOKEN }}
+          PRINT_SUMMARY: true # Print summary of deleted workspaces. Optional & defaults to false
 ```

@@ -92,6 +92,7 @@ async function deleteWorkspace(
 async function run() {
   try {
     const gitpodToken = core.getInput("GITPOD_TOKEN", { required: true });
+    const printSummary = core.getBooleanInput("PRINT_SUMMARY", { required: false });
     const deletedWorkspaces: string[] = [];
 
     if (!gitpodToken) {
@@ -101,10 +102,10 @@ async function run() {
     const workspacesToDelete = await listWorkspaces(gitpodToken);
     for (const workspaceId of workspacesToDelete) {
       await deleteWorkspace(workspaceId, gitpodToken);
-      deletedWorkspaces.push(workspaceId);
+      printSummary ? deletedWorkspaces.push(workspaceId) : null;
     }
 
-    if (deletedWorkspaces.length > 0) {
+    if (deletedWorkspaces.length > 0 && printSummary) {
       core.summary
         .addHeading("Workspace IDs of deleted workspaces")
         .addList(deletedWorkspaces)

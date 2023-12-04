@@ -5,6 +5,10 @@ inputs:
   GITPOD_TOKEN:
     description: "Gitpod Personal Access token"
     required: true
+  PRINT_SUMMARY:
+    description: "Print summary of deleted workspaces"
+    required: false
+    default: "false"
 outputs:
   success:
     description: "true|false based on if the script worked"
