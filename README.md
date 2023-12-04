@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Delete clean Gitpod workspaces
-        uses: Siddhant-K-code/delete-clean-workspaces@v1.0
+        uses: Siddhant-K-code/delete-clean-workspaces@v1.1
         with:
           GITPOD_TOKEN: ${{ secrets.GITPOD_PAT_TOKEN }}
           PRINT_SUMMARY: true # Print summary of deleted workspaces. Optional & defaults to false
